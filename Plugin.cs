@@ -15,7 +15,7 @@ namespace DayAndNight
     public class DayAndNightPlugin : BaseUnityPlugin
     {
         internal const string ModName = "DayAndNight";
-        internal const string ModVersion = "1.0.0";
+        internal const string ModVersion = "1.0.1";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -32,7 +32,7 @@ namespace DayAndNight
 
         public void Awake()
         {
-            FreezeTimeHotkey = TextEntryConfig("2 - Hotkeys", "Freeze Time Hotkey", new KeyboardShortcut(KeyCode.F, KeyCode.LeftControl), "This is the hotkey that will toggle the Freeze Time option. This will only work if the game is not paused.");
+            FreezeTimeHotkey = Config.Bind("2 - Hotkeys", "Freeze Time Hotkey", new KeyboardShortcut(KeyCode.F, KeyCode.LeftControl), "This is the hotkey that will toggle the Freeze Time option. This will only work if the game is not paused.");
             FreezeTime = Config.Bind("1 - Freeze", "Freeze Time", Toggle.Off, "If on, the other values in this section take effect. They will control the time of day that is in the game.");
             Seconds = Config.Bind("1 - Freeze", "Seconds", 0, "If Freeze Time is on, this will control the seconds of the day. 0 is the default, 30 is half a minute, 60 is a minute.");
             Minutes = Config.Bind("1 - Freeze", "Minutes", 0, "If Freeze Time is on, this will control the minutes of the day. 0 is the default, 30 is half an hour, 60 is an hour.");
