@@ -1,0 +1,9 @@
+{
+  "name": "DayAndNight",
+  "version_number": "1.0.0",
+  "website_url": "https://discord.gg/Vd89cSgxNW",
+  "description": "A mod that allows you to change aspects about the day and night within the game. Optionally, freeze time at a specific time of day.",
+  "dependencies": [
+    "SunkenlandModding-BepInExPack_Sunkenland-5.4.22"
+  ]
+}
