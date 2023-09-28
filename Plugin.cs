@@ -15,7 +15,7 @@ namespace DayAndNight
     public class DayAndNightPlugin : BaseUnityPlugin
     {
         internal const string ModName = "DayAndNight";
-        internal const string ModVersion = "1.0.1";
+        internal const string ModVersion = "1.0.2";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -40,9 +40,9 @@ namespace DayAndNight
             Days = Config.Bind("1 - Freeze", "Days", 1, "If Freeze Time is on, this will control the days in your game. 1 is the default");
             Years = Config.Bind("1 - Freeze", "Years", 1, "If Freeze Time is on, this will control the years of your game. 1 is the default.");
 
-            DayModifier = Config.Bind("1 - Modifiers", "Day Modifier", -1f, "If this value is not -1, it will control the speed of the day. 1 is normal, 2 is twice as fast, 0.5 is half as fast.");
-            NightModifier = Config.Bind("1 - Modifiers", "Night Modifier", -1f, "If this value is not -1, it will control the speed of the night. 1 is normal, 2 is twice as fast, 0.5 is half as fast.");
-            CycleLengthInMinutes = Config.Bind("1 - Modifiers", "Cycle Length In Minutes", -1f, "If this value is not -1, it will control the cycle length of the day. The default for the game is 5 minutes. This will change the length of the day/night cycle. The game states this as the Full 24h cycle in realtime minutes.");
+            DayModifier = Config.Bind("1 - Modifiers", "Day Modifier", -1f, "If this value is not -1, it will control the length of the day. 1 is normal, 2 is twice as long, 0.5 is half as long.");
+            NightModifier = Config.Bind("1 - Modifiers", "Night Modifier", -1f, "If this value is not -1, it will control the length of the night. 1 is normal, 2 is twice as long, 0.5 is half as long.");
+            CycleLengthInMinutes = Config.Bind("1 - Modifiers", "Cycle Length In Minutes", -1f, "If this value is not -1, it will control the cycle length of the day. The default for the game is 5 minutes. This will change the length of the day & night cycle. The game states this as the Full 24h cycle in realtime minutes.");
 
 
             Assembly assembly = Assembly.GetExecutingAssembly();

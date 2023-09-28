@@ -15,6 +15,35 @@ I do recommend using the [ConfigurationManager](https://thunderstore.io/c/sunken
 
 - If you wish to have the day forced on other players, you might have to toggle the Freeze Time option for their client to update when changing the settings live.
 - Recommended to only be installed on the host machine, not tested with multiple people having the mod installed.
+---
+
+**Day, Night, and Cycle Length Modifiers: Control The Passage of Time In Your Game**
+
+These settings allow you to tweak the length of day and night cycles in your game to suit your preferences or create new challenges. Here’s how each setting works:
+
+1. **Day Modifier**:
+   - This setting adjusts the length of the in-game daytime.
+   - Setting it to 1 keeps the day length normal.
+   - A setting of 2 doubles the length of the daytime, making days last twice as long.
+   - A setting of 0.5 halves the daytime length, making days pass twice as fast.
+   - If set to -1, the day length reverts to the game's default setting.
+
+2. **Night Modifier**:
+   - This setting adjusts the length of the in-game nighttime.
+   - Setting it to 1 keeps the night length normal.
+   - A setting of 2 doubles the length of the nighttime, making nights last twice as long.
+   - A setting of 0.5 halves the nighttime length, making nights pass twice as fast.
+   - If set to -1, the night length reverts to the game's default setting.
+
+3. **Cycle Length In Minutes**:
+   - This setting adjusts the total length of a full day-night cycle in real-time minutes.
+   - For instance, setting it to 10 makes a full day-night cycle last 10 minutes in real time.
+   - If set to -1, the cycle length reverts to the game's default setting, which is 5 minutes.
+
+These modifiers provide a simple way to control the pace of your game. Whether you want longer days to explore, longer nights to increase the challenge, or faster cycles for a quicker gameplay experience, these settings put the control in your hands.
+
+---
+
 
 <details>
 <summary><b>Installation Instructions</b></summary>
