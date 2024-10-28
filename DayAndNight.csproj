@@ -91,6 +91,12 @@
         <Reference Include="Fusion.Sockets">
             <HintPath>$(PublicizedAssembliesPath)\Fusion.Sockets_publicized.dll</HintPath>
         </Reference>
+        <Reference Include="Enviro3.Runtime">
+            <HintPath>$(CorlibPath)\Enviro3.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="KWS">
+            <HintPath>$(CorlibPath)\KWS.dll</HintPath>
+        </Reference>
         <Reference Include="System"/>
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>

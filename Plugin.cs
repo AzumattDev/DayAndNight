@@ -5,6 +5,7 @@ using System.Reflection;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
+using Enviro;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace DayAndNight
     public class DayAndNightPlugin : BaseUnityPlugin
     {
         internal const string ModName = "DayAndNight";
-        internal const string ModVersion = "1.0.2";
+        internal const string ModVersion = "1.0.3";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -162,10 +163,10 @@ namespace DayAndNight
     }
 
 
-    [HarmonyPatch(typeof(EnviroCore), nameof(EnviroCore.UpdateTime))]
+    [HarmonyPatch(typeof(EnviroTimeModule), nameof(EnviroTimeModule.UpdateModule))]
     static class EnviroCoreUpdateTimePatch
     {
-        static void Prefix(EnviroCore __instance)
+        static void Prefix(EnviroTimeModule __instance)
         {
             if (Math.Abs(DayAndNightPlugin.DayModifier.Value - (-1f)) > 0.001)
             {
@@ -175,7 +176,7 @@ namespace DayAndNight
                     DayAndNightPlugin.DayModifier.Value = 0.001f;
                 }
 
-                __instance.GameTime.dayLengthModifier = DayAndNightPlugin.DayModifier.Value;
+                __instance.Settings.dayLengthModifier = DayAndNightPlugin.DayModifier.Value;
             }
 
             if (Math.Abs(DayAndNightPlugin.NightModifier.Value - (-1f)) > 0.001)
@@ -186,7 +187,7 @@ namespace DayAndNight
                     DayAndNightPlugin.NightModifier.Value = 0.001f;
                 }
 
-                __instance.GameTime.nightLengthModifier = DayAndNightPlugin.NightModifier.Value;
+                __instance.Settings.nightLengthModifier = DayAndNightPlugin.NightModifier.Value;
             }
 
             if (Math.Abs(DayAndNightPlugin.CycleLengthInMinutes.Value - (-1f)) > 0.001)
@@ -197,25 +198,25 @@ namespace DayAndNight
                     DayAndNightPlugin.CycleLengthInMinutes.Value = 0.001f;
                 }
 
-                __instance.GameTime.cycleLengthInMinutes = DayAndNightPlugin.CycleLengthInMinutes.Value;
+                __instance.Settings.cycleLengthInMinutes = DayAndNightPlugin.CycleLengthInMinutes.Value;
             }
 
             if (DayAndNightPlugin.FreezeTime.Value == DayAndNightPlugin.Toggle.On)
             {
                 // Set the time progression to none
-                __instance.GameTime.ProgressTime = EnviroTime.TimeProgressMode.None;
+                __instance.Settings.simulate = false;
 
                 // Set the time to a forced time for days minutes etc.
-                __instance.GameTime.Seconds = DayAndNightPlugin.Seconds.Value;
-                __instance.GameTime.Minutes = DayAndNightPlugin.Minutes.Value;
-                __instance.GameTime.Hours = DayAndNightPlugin.Hours.Value;
-                __instance.GameTime.Days = DayAndNightPlugin.Days.Value;
-                __instance.GameTime.Years = DayAndNightPlugin.Years.Value;
+                __instance.Settings.secSerial = DayAndNightPlugin.Seconds.Value;
+                __instance.Settings.minSerial = DayAndNightPlugin.Minutes.Value;
+                __instance.Settings.hourSerial = DayAndNightPlugin.Hours.Value;
+                __instance.Settings.daySerial = DayAndNightPlugin.Days.Value;
+                __instance.Settings.yearSerial = DayAndNightPlugin.Years.Value;
             }
             else
             {
                 // Reset the time progression to the default
-                __instance.GameTime.ProgressTime = EnviroTime.TimeProgressMode.Simulated;
+                __instance.Settings.simulate = true;
             }
         }
     }
